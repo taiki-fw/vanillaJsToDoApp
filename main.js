@@ -13,7 +13,24 @@ document.getElementById('js-submit').addEventListener('click', function() {
   var edit = document.createElement('button')
   edit.textContent = "編集"
   edit.addEventListener('click', function() {
-    this.previousSibling.innerHTML = `<input value=${this.previousSibling.textContent}>`
+    var editInput = document.createElement('input')
+    editInput.className = 'list-name'
+    editInput.value = this.previousSibling.textContent
+    this.parentElement.insertBefore(editInput, this.previousSibling)
+    this.parentElement.removeChild(this.previousSibling);
+
+    var update = document.createElement('button');
+    update.addEventListener('click', function() {
+      var newListName = document.createElement('p')
+      newListName.className ='list-name'
+      newListName.textContent = this.previousSibling.value
+      this.parentElement.insertBefore(newListName, this.previousSibling)
+      this.parentElement.removeChild(this.previousSibling);
+    })
+
+    update.textContent = "更新"
+    this.parentElement.insertBefore(update, this);
+    this.parentElement.removeChild(this);
     // 要素を変更してイベントを分けないといけない
   })
 
