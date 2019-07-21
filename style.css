@@ -1,0 +1,11 @@
+#todo-list li {
+  display: flex;
+  align-items: center; }
+
+input[type=checkbox] {
+  margin: 0; }
+
+.list-name {
+  margin: 0 0.5em; }
+
+/*# sourceMappingURL=style.css.map */
